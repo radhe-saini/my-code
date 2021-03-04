@@ -17,21 +17,21 @@ def read_root():
 
 
 @APP.get("/length/{sample_string}")
-def length(sample_string: str, q: Optional[str] = None):
+def length(sample_string: str, q_u: Optional[str] = None):
     """length function"""
     index = 0
     try:
         while sample_string[index]:
             index += 1
     except IndexError:
-        return {"length of string": index, "Q": q}
+        return {"length of string": index, "Q": q_u}
 
 
 @APP.get("/gen_string/{no_of_char}")
-def gen_string(no_of_char: int, q: Optional[str] = None):
+def gen_string(no_of_char: int, q_u: Optional[str] = None):
     """
     2 nd end point - string generation"""
     result_string = ''
     for _ in range(no_of_char):
         result_string += input()
-    return {"generated string":result_string, "q": q}
+    return {"generated string":result_string, "q": q_u}
